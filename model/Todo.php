@@ -6,7 +6,7 @@ class Todo
     private $createDate;
     private $dueDate;
 
-    public function __contstruct($desc, $cd, $dd) {
+    public function __construct($desc, $cd, $dd) {
         $this->description = $desc;
         $this->createDate = $cd;
         $this->dueDate = $dd;
@@ -29,6 +29,14 @@ class Todo
     public function getCreateDate()
     {
         return $this->createDate;
+    }
+
+    public function printRow() {
+        $desc = $this->getDescription();
+        $cd = $this->getCreateDate();
+        $dd = $this->getDueDate();
+
+        echo '<tr>';
     }
 
 }

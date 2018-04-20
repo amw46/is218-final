@@ -5,15 +5,16 @@ class TodosDB {
 
     private function __construct() {}
 
-    public static function getTodo($id) {
+    public static function getCompleteTodo($id) {
 
         $list = array();
 
         $db = Database::getDB();
 
-        $query = 'SELECT * FROM todos WHERE ownerid = :id';
+        $query = 'SELECT * FROM todos WHERE ownerid = :id AND isdone = :bool';
         $statement = $db->prepare($query);
         $statement->bindValue(':id', $id);
+        $statement->bindValue(':bool', 0);
         $statement->execute();
         $todos = $statement->fetchAll();
         $statement->closeCursor();
@@ -24,6 +25,32 @@ class TodosDB {
 
             $list[] = $user;
          }
+
+
+        return $list;
+
+    }
+
+    public static function getIncompleteTodo($id) {
+
+        $list = array();
+
+        $db = Database::getDB();
+
+        $query = 'SELECT * FROM todos WHERE ownerid = :id AND isdone = :bool';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':id', $id);
+        $statement->bindValue(':bool', 1);
+        $statement->execute();
+        $todos = $statement->fetchAll();
+        $statement->closeCursor();
+
+        foreach($todos as $todo) {
+
+            $user = new Todo($todo['message'], $todo['createddate'], $todo['duedate']);
+
+            $list[] = $user;
+        }
 
 
         return $list;
