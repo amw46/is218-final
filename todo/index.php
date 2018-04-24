@@ -4,17 +4,30 @@ require('../model/TodosDB.php');
 require('../model/Todo.php');
 require('../model/Database.php');
 
-$first = filter_input();
+$email = filter_input(INPUT_POST, 'signInEmail');
+$pass = filter_input(INPUT_POST, 'signInPassword');
 
-$inDatabase;
+$inDatabase = authorize($email, $pass);
+
+if ($inDatabase) {
 
 
-$action = filter_input(INPUT_POST, 'action');
-if ($action == NULL) {
-    $action = filter_input(INPUT_GET, 'action');
+    $action = filter_input(INPUT_POST, 'action');
     if ($action == NULL) {
-        $action = 'list_todo';
+        $action = filter_input(INPUT_GET, 'action');
+        if ($action == NULL) {
+            $action = 'list_todo';
+        }
     }
+
+}
+
+else {
+    echo 'Not found in database';
+
+    echo '<a href="index.php">Refresh';
+    echo '</a>';
+
 }
 
 ?>
