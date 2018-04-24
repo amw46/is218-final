@@ -35,6 +35,25 @@ class Database
         return self::$db; //return the database
     } //end getDB
 
+    public function authorize($em, $pass) {
+        $db = Database::getDB();
+        $isInDatabase = false;
+
+        $query = 'SELECT * FROM accounts WHERE email = :email AND password = :password';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':email', $em);
+        $statement->bindValue(':password', $pass);
+        $statement->execute();
+
+        if ($statement->fetchAll()) { //a result is found
+            $isInDatabase = true;
+        }
+
+        $statement->closeCursor();
+
+        return $isInDatabase;
+    }
+
 }
 
 ?>
