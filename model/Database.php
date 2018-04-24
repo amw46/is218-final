@@ -54,6 +54,20 @@ class Database
         return $isInDatabase;
     }
 
+    public function getNameByEmail($email){
+        $db = Database::getDB();
+
+        $query = 'SELECT fname, lname FROM accounts WHERE email = :email';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+
+        $n = $statement->fetch();
+        $statement->closeCursor();
+
+        return $n;
+    }
+
 }
 
 ?>
