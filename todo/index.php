@@ -5,9 +5,11 @@ include('../model/AccountDB.php');
 require('../model/Todo.php');
 require('../model/Database.php');
 
-
+$cookieName = 'cookieEm';
 $email = filter_input(INPUT_POST, 'signInEmail');
 $pass = filter_input(INPUT_POST, 'signInPassword');
+
+setcookie($cookieName, $email, time() + (86400 * 30), "/"); // 86400 = 1 day
 
 $inDatabase = AccountDB::authorize($email, $pass);
 
