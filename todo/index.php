@@ -9,7 +9,7 @@ require('../model/Database.php');
 $email = filter_input(INPUT_POST, 'signInEmail');
 $pass = filter_input(INPUT_POST, 'signInPassword');
 
-$inDatabase = authorize($email, $pass);
+$inDatabase = AccountDB::authorize($email, $pass);
 
 if ($inDatabase) {
 
