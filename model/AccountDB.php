@@ -14,7 +14,7 @@ class AccountDB
         $statement->bindValue(':password', $pass);
         $statement->execute();
 
-        if ($statement->fetchAll()) { //a result is found
+        if ($info = $statement->fetchAll()) { //a result is found
             $isInDatabase = true;
         }
 

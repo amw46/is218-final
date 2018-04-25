@@ -24,12 +24,16 @@ if ($inDatabase) {
         }
     }
 
+    if ($action == 'list_todo') {
+        include('todos_list.php');
+    }
+
 }
 
 else {
     echo 'Not found in database';
-
-    echo '<a href="index.php">Refresh';
+    echo '<br>';
+    echo '<a href="../index.html">Refresh';
     echo '</a>';
 
 }
