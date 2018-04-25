@@ -2,7 +2,9 @@
 
 <?php
 
-$em = filter_input(INPUT_COOKIE, 'cookieEm', FILTER_VALIDATE_INT);
+$em = filter_input(INPUT_COOKIE, 'cookieEm');
+//$em = $_COOKIE['cookieEm'];
+
 $name = AccountDB::getNameByEmail($em);
 $todosInc = TodosDB::getIncompleteTodo($em);
 $todosCom = TodosDB::getCompleteTodo($em);
@@ -21,11 +23,9 @@ $todosCom = TodosDB::getCompleteTodo($em);
         <th>Created Date</th>
         <th>Due Date</th>
     </tr>
-    <tr>
         <?php foreach ($todosInc as $tdi) : ?>
             <?php echo $tdi->printRow(); ?>
         <?php endforeach; ?>
-    </tr>
 </table>
 
 
@@ -36,11 +36,9 @@ $todosCom = TodosDB::getCompleteTodo($em);
         <th>Created Date</th>
         <th>Due Date</th>
     </tr>
-    <tr>
         <?php foreach ($todosCom as $tdc) : ?>
             <?php echo $tdc->printRow(); ?>
         <?php endforeach; ?>
-    </tr>
 </table>
 
 </body>
