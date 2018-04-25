@@ -34,7 +34,9 @@ class AccountDB
         $n = $statement->fetch();
         $statement->closeCursor();
 
-        return $n;
+        $name = $n['fname'] . " " . $n['lname'];
+
+        return $name;
     }
 
 
