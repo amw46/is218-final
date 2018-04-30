@@ -2,10 +2,9 @@
 
 <?php
 
-$em = filter_input(INPUT_COOKIE, 'cookieEm');
+$name = filter_input(INPUT_COOKIE, 'cookieName');
 //$em = $_COOKIE['cookieEm'];
 
-$name = AccountDB::getNameByEmail($em);
 $todosInc = TodosDB::getIncompleteTodo($em);
 $todosCom = TodosDB::getCompleteTodo($em);
 
