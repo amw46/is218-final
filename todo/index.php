@@ -36,7 +36,6 @@ if ($inDatabase) {
         include('todos_list.php');
     }
     else if ($action == "show_form") {
-        $email = filter_input(INPUT_POST, 'signInEmail');
         include('todos_form.php');
     }
 
@@ -44,7 +43,19 @@ if ($inDatabase) {
 
     }
     else if ($action == "add_todo") {
+        $message = filter_input(INPUT_POST, "message");
+        $created = filter_input(INPUT_POST, "created");
+        $due = filter_input(INPUT_POST, "due");
 
+        if ($message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
+            echo 'Invalid';
+            echo '<br>';
+            echo '<a href="todos_list.php">Refresh';
+            echo '</a>';
+        }
+        else {
+            TodosDB::addTodo($id, $email, $message, $created, $due);
+        }
     }
     else if ($action == "delete_todo") {
 
