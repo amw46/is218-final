@@ -46,7 +46,7 @@ class Todo
         echo '<td>';
         echo $dd;
         echo '</td>';
-        echo '</tr>';
+
     }
 
 }

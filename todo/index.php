@@ -29,13 +29,14 @@ if ($inDatabase) {
     }
 
     if ($action == 'list_todo') {
+        $name = AccountDB::getNameByEmail($email);
         $todosInc = TodosDB::getIncompleteTodo($email);
         $todosCom = TodosDB::getCompleteTodo($email);
 
         include('todos_list.php');
     }
     else if ($action == "show_form") {
-
+        include('todos_form.php');
     }
 
     else if ($action == "edit_todo") {
