@@ -1,5 +1,5 @@
 <?php
-
+ include('Database.php');
 
 class TodosDB {
 
@@ -58,6 +58,7 @@ class TodosDB {
     }
 
     public static function getDescription($em) {
+
         $db = Database::getDB();
 
         $query = 'SELECT message FROM todos WHERE owneremail = :email';
