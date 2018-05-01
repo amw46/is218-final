@@ -1,7 +1,7 @@
 <?php
 
 require('../model/TodosDB.php');
-include('../model/AccountDB.php');
+require('../model/AccountDB.php');
 require('../model/Todo.php');
 require('../model/Database.php');
 
@@ -26,7 +26,20 @@ if ($inDatabase) {
     }
 
     if ($action == 'list_todo') {
+        $todosInc = TodosDB::getIncompleteTodo($email);
+        $todosCom = TodosDB::getCompleteTodo($email);
+
         include('todos_list.php');
+    }
+    else if ($action == "show_form") {
+
+    }
+
+    else if ($action == "edit_todo") {
+
+    }
+    else if ($action == "add_todo") {
+
     }
 
 }

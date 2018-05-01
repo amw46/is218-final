@@ -5,8 +5,6 @@
 $name = filter_input(INPUT_COOKIE, 'cookieName');
 //$em = $_COOKIE['cookieEm'];
 
-$todosInc = TodosDB::getIncompleteTodo($em);
-$todosCom = TodosDB::getCompleteTodo($em);
 
 ?>
 
