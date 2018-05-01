@@ -45,6 +45,9 @@ if ($inDatabase) {
     else if ($action == "add_todo") {
 
     }
+    else if ($action == "delete_todo") {
+
+    }
 
 }
 

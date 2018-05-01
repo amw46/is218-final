@@ -36,24 +36,25 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
         <th>Description</th>
         <th>Created Date</th>
         <th>Due Date</th>
+        <th>&nbsp;</th>
     </tr>
         <?php foreach ($todosCom as $tdc) : ?>
             <?php echo $tdc->printRow(); ?>
+            <td>
+                <form action="todos_form.php" method="post">
+                    <input type="hidden" name="action" value="edit_todo">
+                    <button type="submit"><i class="fa fa-pencil"></i></button>
+                </form>
+            </td>
+            <td>
+                <form action="." method="post">
+                    <input type="hidden" name="action" value="show_form">
+                    <button type="submit"><i class="fa fa-plus"></i></button>
+                </form>
+            </td>
+            <?php echo '</tr>';?>
         <?php endforeach; ?>
-        <td>
-            <form action="." method="post">
-                <input type="hidden" name="action" value="show_form">
-                <button type="button" style="border-radius: 50%"><i class="fa fa-pencil"></i></button>
-            </form>
-        </td>
-        <td>
-            <form action="." method="post">
-                <input type="hidden" name="action" value="show_form">
-                <button type="button"><i class="fa fa-plus"></i></button>
-            </form>
-        </td>
 
-    <?php echo '</tr>';?>
 </table>
 
 </body>

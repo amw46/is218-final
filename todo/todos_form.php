@@ -18,7 +18,7 @@
                 <input type="hidden" name="action" value="edit_todo">
             <?php }
                 else { ?>
-                <input type="hidden" name="action" value="edit_todo">
+                <input type="hidden" name="action" value="add_todo">
            <?php  }?>
 
 
