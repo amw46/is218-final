@@ -1,8 +1,8 @@
 <?php include '../view/header.php'; ?>
 <?php
-    include("../model/Todo.php");
+    include("../model/TodosDB.php");
 
-    $desc = TodosDB::getDescription($em);
+    $desc = TodosDB::getDescription($email);
 ?>
 
 

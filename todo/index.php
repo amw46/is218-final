@@ -36,6 +36,7 @@ if ($inDatabase) {
         include('todos_list.php');
     }
     else if ($action == "show_form") {
+        $email = filter_input(INPUT_POST, 'signInEmail');
         include('todos_form.php');
     }
 
