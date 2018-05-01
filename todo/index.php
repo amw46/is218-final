@@ -9,6 +9,9 @@ $cookieName = 'cookieName';
 $email = filter_input(INPUT_POST, 'signInEmail');
 $pass = filter_input(INPUT_POST, 'signInPassword');
 $name = AccountDB::getNameByEmail($email);
+$id = AccountDB::getIDByEmail($email);
+
+session_start();
 
 setcookie($cookieName, $name, time() + (86400 * 30), "/"); // 86400 = 1 day
 

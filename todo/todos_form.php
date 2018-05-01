@@ -13,16 +13,16 @@
         <input type="checkbox" name="option" value="edit"><br>
         <input type="checkbox" name="option" value="add">
 
-        <?php $act = filter_input(INPUT_POST, "option");
-            if ($act == "edit") {
-                $action = "edit_todo";
-            }
-            else {
-                $action = "add_todo";
-            }
-        ?>
+        <?php $act = filter_input(INPUT_POST, "option"); ?>
+            <?php if ($act == "edit") { ?>
+                <input type="hidden" name="action" value="edit_todo">
+            <?php }
+                else { ?>
+                <input type="hidden" name="action" value="edit_todo">
+           <?php  }?>
 
-        <input type="hidden" name="action" value="<?php echo $action;?>">
+
+
         <label>Message:</label>
         <input type="text" value="<?php echo $desc;?>">
 

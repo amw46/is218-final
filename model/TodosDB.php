@@ -68,14 +68,41 @@ class TodosDB {
 
         $statement->closeCursor();
 
-        return $e;
+        $ea = $e['message'];
+
+        return $ea;
     }
 
-    public static function addTodo ($mess, $cd, $dd) {
+    public static function addTodo ($id, $em, $mess, $cd, $dd) {
+        $db = Database::getDB();
 
+        $query = 'INSERT INTO (id, email, ownerid, createddate, duedate, message, isdone) VALUES (, :em, :id, :cd, :dd, :mess, 0)';
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(":mess", $mess);
+        $statement->bindValue(":cd", $cd);
+        $statement->bindValue(":dd", $dd);
+        $statement->bindValue(":em", $em);
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        $statement->closeCursor();
     }
 
-    public static function editTodo($mess, $cd, $dd) {
+    public static function editTodo($id, $em, $mess, $cd, $dd) {
+        $db = Database::getDB();
+
+        $query = 'UPDATE todos SET message = :mess, createddate = :cd, duedate = :dd WHERE owneremail = :em AND ownerid = :id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(":mess", $mess);
+        $statement->bindValue(":cd", $cd);
+        $statement->bindValue(":dd", $dd);
+        $statement->bindValue(":em", $em);
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        $statement->closeCursor();
+    }
+
+    public static function setComplete() {
 
     }
 

@@ -38,6 +38,21 @@ class AccountDB
 
         return $name;
     }
+    public static function getIDByEmail($email){
+        $db = Database::getDB();
+
+        $query = 'SELECT ownerid FROM accounts WHERE email = :email';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+
+        $i = $statement->fetch();
+        $statement->closeCursor();
+
+        $id = $i['ownerid'];
+
+        return $id;
+    }
 
 
 }
