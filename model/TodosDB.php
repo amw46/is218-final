@@ -56,23 +56,6 @@ class TodosDB {
 
     }
 
-    public static function getDescription($em) {
-
-        $db = Database::getDB();
-
-        $query = 'SELECT message FROM todos WHERE owneremail = :email';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':email', $em);
-        $statement->execute();
-        $e = $statement->fetch();
-
-        $statement->closeCursor();
-
-        $ea = $e['message'];
-
-        return $ea;
-    }
-
     public static function addTodo ($id, $em, $mess, $cd, $dd) {
         $db = Database::getDB();
 

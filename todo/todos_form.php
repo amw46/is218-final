@@ -2,7 +2,6 @@
 <?php
     include("../model/TodosDB.php");
 
-    $desc = TodosDB::getDescription($email);
 ?>
 
 
@@ -27,7 +26,7 @@
 
 
         <label>Message:</label>
-        <input type="text" value="<?php echo $desc;?>">
+        <input type="text">
 
         <label>Created Date:</label>
         <input type="date">
