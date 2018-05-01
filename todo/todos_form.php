@@ -10,8 +10,11 @@
     <h1>Add Or Edit A To-Do Item</h1>
 
     <form action="index.php" method="post" id="todo_form">
-        <input type="checkbox" name="option" value="edit"><br>
-        <input type="checkbox" name="option" value="add">
+        <div>
+            <input type="radio" name="option" value="edit"><label>Edit</label><br>
+            <input type="radio" name="option" value="add"><label>Add</label>
+        </div>
+
 
         <?php $act = filter_input(INPUT_POST, "option"); ?>
             <?php if ($act == "edit") { ?>

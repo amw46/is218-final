@@ -3,7 +3,7 @@
 require('../model/TodosDB.php');
 require('../model/AccountDB.php');
 require('../model/Todo.php');
-//require('../model/Database.php');
+require('../model/Database.php');
 
 $cookieName = 'cookieName';
 $email = filter_input(INPUT_POST, 'signInEmail');
