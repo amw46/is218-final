@@ -29,7 +29,6 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
             <?php echo $tdi->printRow(); ?>
             <td>
                 <form action="todos_edit.php" method="post">
-                    <input type="hidden" name="action" value="show_add_form">
                     <input type="hidden" name="desc" value="<?php echo $tdi->getDescription(); ?>">
                     <input type="hidden" name="create" value="<?php echo $tdi->getCreatedDate(); ?>">
                     <input type="hidden" name="du" value="<?php echo $tdi->getDueDate(); ?>">
