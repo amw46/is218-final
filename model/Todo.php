@@ -36,7 +36,6 @@ class Todo
         $cd = $this->getCreateDate();
         $dd = $this->getDueDate();
 
-        echo '<tr>';
         echo '<td>';
         echo $desc;
         echo '</td>';

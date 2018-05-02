@@ -26,6 +26,7 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
 
     </tr>
     <?php foreach ($todosInc as $tdi) : ?>
+        <tr>
         <?php echo $tdi->printRow(); ?>
         <td>
             <form action="todos_edit.php" method="post">
@@ -35,7 +36,7 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
                 <input type="submit" value="edit">
             </form>
         </td>
-        <?php echo '</tr>';?>
+        </tr>
     <?php endforeach; ?>
 </table>
 
@@ -49,6 +50,7 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
         <th>&nbsp;</th>
     </tr>
     <?php foreach ($todosCom as $tdc) : ?>
+        <tr>
         <?php echo $tdc->printRow(); ?>
         <td>
             <form action="todos_edit.php" method="post">
@@ -59,7 +61,7 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
                 <input type="submit" value="Edit">
             </form>
         </td>
-        <?php echo '</tr>';?>
+        </tr>
     <?php endforeach; ?>
 
 </table>
