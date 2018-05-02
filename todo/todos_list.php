@@ -29,10 +29,10 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
         <?php echo $tdi->printRow(); ?>
         <td>
             <form action="todos_edit.php" method="post">
-                <input type="hidden" name="desc" value="<?php echo $tdi->getDescription(); ?>" />
-                <input type="hidden" name="create" value="<?php echo $tdi->getCreatedDate(); ?>" />
-                <input type="hidden" name="du" value="<?php echo $tdi->getDueDate(); ?>" />
-                <input type="submit"><i class="fa fa-pencil"></i></input>
+                <input type="hidden" name="desc" value="<?php echo $tdi->getDescription(); ?>">
+                <input type="hidden" name="create" value="<?php echo $tdi->getCreatedDate(); ?>">
+                <input type="hidden" name="du" value="<?php echo $tdi->getDueDate(); ?>">
+                <input type="submit" value="edit">
             </form>
         </td>
         <?php echo '</tr>';?>
@@ -56,7 +56,7 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
                 <input type="hidden" name="desc" value="<?php echo $tdc->getDescription(); ?>" />
                 <input type="hidden" name="create" value="<?php echo $tdc->getCreatedDate(); ?>" />
                 <input type="hidden" name="du" value="<?php echo $tdc->getDueDate(); ?>" />
-                <input type="submit"><i class="fa fa-pencil"></i></input>
+                <input type="submit" value="Edit">
             </form>
         </td>
         <?php echo '</tr>';?>

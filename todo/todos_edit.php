@@ -10,7 +10,7 @@ include("../model/TodosDB.php");
 
         <form action="index.php" method="post" id="todo_form">
 
-            <input type="hidden" name="action" value="add_todo">
+            <input type="hidden" name="action" value="edit_todo">
 
 
             <br>
