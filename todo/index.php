@@ -35,11 +35,24 @@ if ($inDatabase) {
 
         include('todos_list.php');
     }
-    else if ($action == "show_form") {
-        include('todos_form.php');
+    else if ($action == "show_add_form") {
+        include('todos_add.php');
     }
 
     else if ($action == "edit_todo") {
+        $message = filter_input(INPUT_POST, "desc");
+        $created = filter_input(INPUT_POST, "create");
+        $due = filter_input(INPUT_POST, "du");
+
+        if ($message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
+            echo 'Invalid';
+            echo '<br>';
+            echo '<a href="todos_list.php">Refresh';
+            echo '</a>';
+        }
+        else {
+            TodosDB::editTodo($id, $email, $message, $created, $due);
+        }
 
     }
     else if ($action == "add_todo") {
