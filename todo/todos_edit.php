@@ -15,13 +15,13 @@ include("../model/TodosDB.php");
 
             <br>
             <label>Message:</label>
-            <input type="text" name="message">
+            <input type="text" name="message" value="<?php echo $message; ?>">
             <br>
             <label>Created Date:</label>
-            <input type="date" name="created">
+            <input type="date" name="created" value="<?php echo $created; ?>">
             <br>
             <label>Due Date</label>
-            <input type="date" name="due">
+            <input type="date" name="due" value="<?php echo $due?>">
             <br>
 
             <input type="submit" value="Submit">
