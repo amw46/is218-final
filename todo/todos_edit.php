@@ -21,7 +21,7 @@ include("../model/TodosDB.php");
             <input type="date" name="created" value="<?php echo $created; ?>">
             <br>
             <label>Due Date:</label>
-            <input type="date" name="due" value="<?php echo $due?>">
+            <input type="date" name="due" value="<?php echo $due; ?>">
             <br>
 
             <input type="submit" value="Submit">
