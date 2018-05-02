@@ -39,7 +39,7 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
         </tr>
     <?php endforeach; ?>
 </table>
-<form action=todos_add.php.php">
+<form action=todos_add.php">
     <input type="submit" value="Add A New Task">
 </form>
 
@@ -67,7 +67,7 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
     <?php endforeach; ?>
 
 </table>
-<form action=todos_add.php.php">
+<form action=todos_add.php">
     <input type="submit" value="Add A New Task">
 </form>
 </body>
