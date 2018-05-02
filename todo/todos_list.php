@@ -41,15 +41,9 @@ $name = filter_input(INPUT_COOKIE, 'cookieName');
         <?php foreach ($todosCom as $tdc) : ?>
             <?php echo $tdc->printRow(); ?>
             <td>
-                <form action="todos_form.php" method="post">
+                <form action="todos_edit.php" method="post">
                     <input type="hidden" name="action" value="edit_todo">
                     <button type="submit"><i class="fa fa-pencil"></i></button>
-                </form>
-            </td>
-            <td>
-                <form action="." method="post">
-                    <input type="hidden" name="action" value="show_form">
-                    <button type="submit"><i class="fa fa-plus"></i></button>
                 </form>
             </td>
             <?php echo '</tr>';?>
