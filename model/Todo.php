@@ -2,15 +2,23 @@
 
 class Todo
 {
+    private $id;
     private $description;
     private $createDate;
     private $dueDate;
 
-    public function __construct($desc, $cd, $dd) {
+    public function __construct($id, $desc, $cd, $dd) {
+        $this->id = $id;
         $this->description = $desc;
         $this->createDate = $cd;
         $this->dueDate = $dd;
 
+    }
+
+
+    public function getId()
+    {
+        return $this->id;
     }
 
 

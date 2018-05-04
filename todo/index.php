@@ -69,7 +69,7 @@ if ($inDatabase) {
             echo '</a>';
         }
         else {
-            TodosDB::addTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due);
+            TodosDB::addTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due, 0);
         }
     }
     else if ($action == "delete_todo") {

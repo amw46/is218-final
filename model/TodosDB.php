@@ -20,7 +20,7 @@ class TodosDB {
 
         foreach($todos as $todo) {
 
-            $user = new Todo($todo['message'], $todo['createddate'], $todo['duedate']);
+            $user = new Todo($todo['id'], $todo['message'], $todo['createddate'], $todo['duedate']);
 
             $list[] = $user;
          }
@@ -56,10 +56,10 @@ class TodosDB {
 
     }
 
-    public static function addTodo ($id, $em, $mess, $cd, $dd) {
+    public static function addTodo ($id, $em, $mess, $cd, $dd, $done) {
         $db = Database::getDB();
 
-        $query = 'INSERT INTO (id, email, ownerid, createddate, duedate, message, isdone) VALUES (, :em, :id, :cd, :dd, :mess, 0)';
+        $query = 'INSERT INTO (id, email, ownerid, createddate, duedate, message, isdone) VALUES (, :em, :id, :cd, :dd, :mess, :done)';
 
         $statement = $db->prepare($query);
         $statement->bindValue(":mess", $mess);
@@ -67,6 +67,7 @@ class TodosDB {
         $statement->bindValue(":dd", $dd);
         $statement->bindValue(":em", $em);
         $statement->bindValue(":id", $id);
+        $statement->bindValue(":done", $done);
         $statement->execute();
         $statement->closeCursor();
     }
