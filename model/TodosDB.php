@@ -56,19 +56,6 @@ class TodosDB {
 
     }
 
-    public static function getTodoById($id) {
-
-        $db = Database::getDB();
-
-        $query = 'SELECT message, createddate, duedate FROM todos WHERE id = :id';
-        $statement = $db->prepare($query);
-        $statement->bindValue(":id", $id);
-        $statement->execute();
-        $todos = $statement->fetch();
-        $statement->closeCursor();
-
-       return $todos;
-    }
 
     public static function addTodo ($oid, $em, $mess, $cd, $dd, $done) {
         $db = Database::getDB();
@@ -98,6 +85,20 @@ class TodosDB {
         $statement->bindValue(":id", $id);
         $statement->execute();
         $statement->closeCursor();
+    }
+
+    public static function getTodoById($id) {
+
+        $db = Database::getDB();
+
+        $query = 'SELECT message, createddate, duedate FROM todos WHERE id = :id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        $todos = $statement->fetchAll();
+        $statement->closeCursor();
+
+        return $todos;
     }
 
     public static function setComplete() {

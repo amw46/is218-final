@@ -45,7 +45,8 @@ if ($inDatabase) {
     }
 
     else if ($action == "edit_todo") {
-        $tid = filter_input(INPUT_POST, 'itemid');
+        $tid = filter_input(INPUT_POST, "itemid");
+        $todo = TodosDB::getTodoById($tid);
 
         $message = filter_input(INPUT_POST, "message");
         $created = filter_input(INPUT_POST, "created");
@@ -58,7 +59,7 @@ if ($inDatabase) {
             echo '</a>';
         }
         else {
-            TodosDB::editTodo($id, $email, $message, $created, $due);
+            TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due);
         }
 
     }

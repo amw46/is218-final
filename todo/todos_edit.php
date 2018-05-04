@@ -1,10 +1,4 @@
 <?php include '../view/header.php'; ?>
-<?php
-include("../model/TodosDB.php");
-
-$todo = TodosDB::getTodoById($tid);
-?>
-
 
     <main>
         <h1>Edit A To-Do Item</h1>
