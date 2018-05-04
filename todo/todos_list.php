@@ -62,9 +62,6 @@
     <?php endforeach; ?>
 
 </table>
-<form action="todos_add.php">
-    <input type="submit" value="Add A New Task">
-</form>
 </body>
 
 
