@@ -23,6 +23,7 @@ if ($inDatabase) {
 
 
     $_SESSION['user_name'] = $name;
+    $_SESSION['user_id'] = $id;
 
     $action = filter_input(INPUT_POST, 'action');
     if ($action == NULL) {
@@ -68,7 +69,7 @@ if ($inDatabase) {
             echo '</a>';
         }
         else {
-            TodosDB::addTodo($id, $email, $message, $created, $due);
+            TodosDB::addTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due);
         }
     }
     else if ($action == "delete_todo") {
