@@ -5,20 +5,24 @@ require('../model/AccountDB.php');
 require('../model/Todo.php');
 require('../model/Database.php');
 
-$cookieName = 'cookieName';
+$cookieName = 'cookieid';
 $email = filter_input(INPUT_POST, 'signInEmail');
 $pass = filter_input(INPUT_POST, 'signInPassword');
 $name = AccountDB::getNameByEmail($email);
 $id = AccountDB::getIDByEmail($email);
 
+
 session_start();
+$_SESSION['user_email'] = $email;
+$_SESSION['user_pass'] = $pass;
+//setcookie($cookieName, $id, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-setcookie($cookieName, $name, time() + (86400 * 30), "/"); // 86400 = 1 day
-
-$inDatabase = AccountDB::authorize($email, $pass);
+$inDatabase = AccountDB::authorize($_SESSION['user_email'], $_SESSION['user_pass']);
 
 if ($inDatabase) {
 
+
+    $_SESSION['user_name'] = $name;
 
     $action = filter_input(INPUT_POST, 'action');
     if ($action == NULL) {
@@ -29,7 +33,7 @@ if ($inDatabase) {
     }
 
     if ($action == 'list_todo') {
-        $name = AccountDB::getNameByEmail($email);
+        $name = $_SESSION['user_name'];
         $todosInc = TodosDB::getIncompleteTodo($email);
         $todosCom = TodosDB::getCompleteTodo($email);
 
@@ -40,9 +44,6 @@ if ($inDatabase) {
     }
 
     else if ($action == "edit_todo") {
-        $message = filter_input(INPUT_POST, "desc");
-        $created = filter_input(INPUT_POST, "create");
-        $due = filter_input(INPUT_POST, "du");
 
         if ($message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
             echo 'Invalid';

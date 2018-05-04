@@ -8,7 +8,7 @@ include("../model/TodosDB.php");
     <main>
         <h1>Add A To-Do Item</h1>
 
-        <form action="index.php" method="post" id="todo_form">
+        <form action="index.php" method="post" id="todo_add_form">
 
             <input type="hidden" name="action" value="add_todo">
 
