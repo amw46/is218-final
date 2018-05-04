@@ -2,6 +2,7 @@
 <?php
 include("../model/TodosDB.php");
 
+$todo = TodosDB::getTodoById($tid);
 ?>
 
 
@@ -15,13 +16,13 @@ include("../model/TodosDB.php");
 
             <br>
             <label>Message:</label>
-            <input type="text" name="message" value="<?php echo $message; ?>">
+            <input type="text" name="message" value="<?php echo $todo['message']; ?>">
             <br>
             <label>Created Date:</label>
-            <input type="date" name="created" value="<?php echo $created; ?>">
+            <input type="date" name="created" value="<?php echo $todo['createddate']; ?>">
             <br>
             <label>Due Date:</label>
-            <input type="date" name="due" value="<?php echo $due; ?>">
+            <input type="date" name="due" value="<?php echo $todo['duedate']; ?>">
             <br>
 
             <input type="submit" value="Submit">

@@ -46,7 +46,7 @@ class TodosDB {
 
         foreach($todos as $todo) {
 
-            $user = new Todo($todo['message'], $todo['createddate'], $todo['duedate']);
+            $user = new Todo($todo['id'], $todo['message'], $todo['createddate'], $todo['duedate']);
 
             $list[] = $user;
         }
@@ -56,17 +56,31 @@ class TodosDB {
 
     }
 
-    public static function addTodo ($id, $em, $mess, $cd, $dd, $done) {
+    public static function getTodoById($id) {
+
         $db = Database::getDB();
 
-        $query = 'INSERT INTO (id, email, ownerid, createddate, duedate, message, isdone) VALUES (, :em, :id, :cd, :dd, :mess, :done)';
+        $query = 'SELECT message, createddate, duedate FROM todos WHERE id = :id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        $todos = $statement->fetch();
+        $statement->closeCursor();
+
+       return $todos;
+    }
+
+    public static function addTodo ($oid, $em, $mess, $cd, $dd, $done) {
+        $db = Database::getDB();
+
+        $query = 'INSERT INTO (id, email, ownerid, createddate, duedate, message, isdone) VALUES (, :em, :oid, :cd, :dd, :mess, :done)';
 
         $statement = $db->prepare($query);
         $statement->bindValue(":mess", $mess);
         $statement->bindValue(":cd", $cd);
         $statement->bindValue(":dd", $dd);
         $statement->bindValue(":em", $em);
-        $statement->bindValue(":id", $id);
+        $statement->bindValue(":oid", $oid);
         $statement->bindValue(":done", $done);
         $statement->execute();
         $statement->closeCursor();

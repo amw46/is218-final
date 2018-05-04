@@ -45,6 +45,11 @@ if ($inDatabase) {
     }
 
     else if ($action == "edit_todo") {
+        $tid = filter_input(INPUT_POST, 'itemid');
+
+        $message = filter_input(INPUT_POST, "message");
+        $created = filter_input(INPUT_POST, "created");
+        $due = filter_input(INPUT_POST, "due");
 
         if ($message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
             echo 'Invalid';

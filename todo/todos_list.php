@@ -30,7 +30,7 @@
             <?php echo $tdi->printRow(); ?>
             <td>
                 <form action="todos_edit.php" method="post">
-
+                    <input type="hidden" name="itemid" value="<?php echo $tdi->getId(); ?>">
                     <input type="submit" value="edit">
                 </form>
             </td>
@@ -54,7 +54,7 @@
             <?php echo $tdc->printRow(); ?>
             <td>
                 <form action="todos_edit.php" method="post">
-
+                    <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
                     <input type="submit" value="Edit">
                 </form>
             </td>
