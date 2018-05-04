@@ -10,13 +10,13 @@
 
             <br>
             <label>Message:</label>
-            <input type="text" name="message" value="<?php echo $todo['message']; ?>">
+            <input type="text" name="message" value="<?php echo $m; ?>">
             <br>
             <label>Created Date:</label>
-            <input type="date" name="created" value="<?php echo $todo['createddate']; ?>">
+            <input type="date" name="created" value="<?php echo $c; ?>">
             <br>
             <label>Due Date:</label>
-            <input type="date" name="due" value="<?php echo $todo['duedate']; ?>">
+            <input type="date" name="due" value="<?php echo $d; ?>">
             <br>
 
             <input type="submit" value="Submit">

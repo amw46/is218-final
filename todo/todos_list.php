@@ -30,8 +30,8 @@
             <?php echo $tdi->printRow(); ?>
             <td>
                 <form action="todos_edit.php" method="post">
-                    <input type="hidden" name="itemid" value="<?php echo $tdi->getId(); ?>">
-                    <input type="submit" value="edit">
+                    <input type="hidden" name="itemid" id="itemid" value="<?php echo $tdi->getId(); ?>">
+                    <input type="submit" value="Edit">
                 </form>
             </td>
         </tr>

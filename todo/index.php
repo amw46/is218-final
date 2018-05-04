@@ -47,6 +47,10 @@ if ($inDatabase) {
     else if ($action == "edit_todo") {
         $tid = filter_input(INPUT_POST, "itemid");
         $todo = TodosDB::getTodoById($tid);
+        //pasing variables along
+        $m = $todo['message'];
+        $c = $todo['createddate'];
+        $d = $todo['duedate'];
 
         $message = filter_input(INPUT_POST, "message");
         $created = filter_input(INPUT_POST, "created");
