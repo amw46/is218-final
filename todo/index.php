@@ -75,6 +75,8 @@ if ($inDatabase) {
 
         }
 
+        include("todos_edit.php");
+
     }
     else if ($action == "add_todo") {
         $message = filter_input(INPUT_POST, "message");
