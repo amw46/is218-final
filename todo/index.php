@@ -46,11 +46,14 @@ if ($inDatabase) {
 
     else if ($action == "edit_todo") {
         $tid = filter_input(INPUT_POST, "itemid");
-        $todo = TodosDB::getTodoById($tid);
+        $todos = TodosDB::getTodoById($tid);
         //pasing variables along
-        $m = $todo['message'];
-        $c = $todo['createddate'];
-        $d = $todo['duedate'];
+        foreach ($todos as $todo) {
+            $m = $todo->getDescription();
+            $c = $todo->getCreateDate();
+            $d = $todo->getDueDate();
+        }
+
 
         $message = filter_input(INPUT_POST, "message");
         $created = filter_input(INPUT_POST, "created");
@@ -63,7 +66,13 @@ if ($inDatabase) {
             echo '</a>';
         }
         else {
-            TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due);
+            foreach ($todos as $todo) {
+                $m = $todo->setDescription($message);
+                $c = $todo->setCreateDate($created);
+                $d = $todo->setDueDate($due);
+                TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $todo->getDescription(), $todo->getCreateDate(), $todo->getDueDate());
+            }
+
         }
 
     }

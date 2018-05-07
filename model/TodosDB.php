@@ -91,14 +91,23 @@ class TodosDB {
 
         $db = Database::getDB();
 
-        $query = 'SELECT message, createddate, duedate FROM todos WHERE id = :id';
+        $list = array();
+
+        $query = 'SELECT * FROM todos WHERE id = :id';
         $statement = $db->prepare($query);
         $statement->bindValue(":id", $id);
         $statement->execute();
         $todos = $statement->fetchAll();
         $statement->closeCursor();
 
-        return $todos;
+        foreach($todos as $todo) {
+
+            $user = new Todo($todo['id'], $todo['message'], $todo['createddate'], $todo['duedate'], $todo['isdone']);
+
+            $list[] = $user;
+        }
+
+        return $list;
     }
 
     public static function deleteTodo($id) {
