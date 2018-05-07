@@ -6,13 +6,21 @@ class Todo
     private $description;
     private $createDate;
     private $dueDate;
+    private $done;
 
-    public function __construct($id, $desc, $cd, $dd) {
+    public function __construct($id, $desc, $cd, $dd, $do) {
         $this->id = $id;
         $this->description = $desc;
         $this->createDate = $cd;
         $this->dueDate = $dd;
+        $this->done = $do;
 
+    }
+
+
+    public function getDone()
+    {
+        return $this->done;
     }
 
 
