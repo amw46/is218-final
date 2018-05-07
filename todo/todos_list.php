@@ -10,58 +10,73 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- bootstrap css -->
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 
 <h1>Welcome, <?php echo $name ?></h1>
 
-<h2>Incomplete To-Do List</h2>
-<table>
-    <tr>
-        <th>Description</th>
-        <th>Created Date</th>
-        <th>Due Date</th>
-        <th>&nbsp;</th>
+<div class="container">
+    <div class="card border-0 mt-5 inc">
+        <h2>Incomplete To-Do List</h2>
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Created Date</th>
+                <th>Due Date</th>
+                <th>&nbsp;</th>
 
-    </tr>
-    <?php foreach ($todosInc as $tdi) : ?>
-        <tr>
-            <?php echo $tdi->printRow(); ?>
-            <td>
-                <span><a href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-</table>
-<p><a href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
+            </tr>
+            <?php foreach ($todosInc as $tdi) : ?>
+                <tr>
+                    <?php echo $tdi->printRow(); ?>
+                    <td>
+                        <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+        <p><a href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
+    </div>
 
-<h2>Complete To-Do List</h2>
-<table>
-    <tr>
-        <th>Description</th>
-        <th>Created Date</th>
-        <th>Due Date</th>
-        <th>&nbsp;</th>
-    </tr>
-    <?php foreach ($todosCom as $tdc) : ?>
-        <tr>
-            <?php echo $tdc->printRow(); ?>
-            <td>
-                <span><a href="?action=show_edit_form&id=<?php echo $tdc->getId(); ?>"><i class="fa fa-pencil"></a></span>
-            </td>
-            <td>
-                <form action="." method="post">
-                    <input type="hidden" name="action"
-                            value="delete_todo">
-                    <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
-                    <input type="submit" value="Delete">
-                </form>
-            </td>
-        </tr>
-    <?php endforeach; ?>
 
-</table>
+    <div class="card border-0 mt-4 comp">
+        <h2>Complete To-Do List</h2>
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Created Date</th>
+                <th>Due Date</th>
+                <th>&nbsp;</th>
+            </tr>
+            <?php foreach ($todosCom as $tdc) : ?>
+                <tr>
+                    <?php echo $tdc->printRow(); ?>
+                    <td>
+                        <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdc->getId(); ?>"><i class="fa fa-pencil"></a></span>
+                    </td>
+                    <td>
+                        <form action="." method="post">
+                            <input type="hidden" name="action"
+                                   value="delete_todo">
+                            <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+
+        </table>
+    </div>
+
+
+
+</div>
+
 </body>
 
 

@@ -51,7 +51,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
     else if ($action == "edit_todo") {
         $tid = filter_input(INPUT_POST, "itemid");
-        $todos = TodosDB::getTodoById($tid);
+        $todo = TodosDB::getTodoById($tid);
         //pasing variables along
 
 
@@ -66,12 +66,11 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
             echo '</a>';
         }
         else {
-            foreach ($todos as $todo) {
-                $todo->setDescription($message);
-                $todo->setCreateDate($created);
-                $todo->setDueDate($due);
-                TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $todo->getDescription(), $todo->getCreateDate(), $todo->getDueDate());
-            }
+            $todo->setDescription($message);
+            $todo->setCreateDate($created);
+            $todo->setDueDate($due);
+            TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $todo->getDescription(), $todo->getCreateDate(), $todo->getDueDate());
+
 
         }
 

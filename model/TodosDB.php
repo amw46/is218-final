@@ -97,17 +97,15 @@ class TodosDB {
         $statement = $db->prepare($query);
         $statement->bindValue(":id", $id);
         $statement->execute();
-        $todos = $statement->fetchAll();
+        $todo = $statement->fetch();
         $statement->closeCursor();
 
-        foreach($todos as $todo) {
 
-            $user = new Todo($todo['id'], $todo['message'], $todo['createddate'], $todo['duedate'], $todo['isdone']);
 
-            $list[] = $user;
-        }
+        $user = new Todo($todo['id'], $todo['message'], $todo['createddate'], $todo['duedate'], $todo['isdone']);
 
-        return $list;
+
+        return $user;
     }
 
     public static function deleteTodo($id) {
