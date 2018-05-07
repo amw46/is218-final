@@ -10,17 +10,17 @@ $email = filter_input(INPUT_POST, 'signInEmail');
 $pass = filter_input(INPUT_POST, 'signInPassword');
 $name = AccountDB::getNameByEmail($email);
 $id = AccountDB::getIDByEmail($email);
-$inDatabase = AccountDB::authorize($_SESSION['user_email'], $_SESSION['user_pass']);
 
 session_start();
 $_SESSION['user_email'] = $email;
 $_SESSION['user_pass'] = $pass;
+$inDatabase = AccountDB::authorize($_SESSION['user_email'], $_SESSION['user_pass']);
 $_SESSION['auth'] = $inDatabase;
 //setcookie($cookieName, $id, time() + (86400 * 30), "/"); // 86400 = 1 day
 
 
 
-if ((!empty($_SESSION["auth"]) || $_SESSION["auth"] == 'true')) {
+if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
 
     $_SESSION['user_name'] = $name;
