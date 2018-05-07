@@ -47,6 +47,23 @@ class Todo
         return $this->createDate;
     }
 
+    public function setDueDate($dd)
+    {
+        $this->dueDate = $dd;
+    }
+
+
+    public function setDescription($d)
+    {
+        $this->description = $d;
+    }
+
+
+    public function setCreateDate($cd)
+    {
+        $this->createDate = $cd;
+    }
+
     public function printRow() {
         $desc = $this->getDescription();
         $cd = $this->getCreateDate();
