@@ -40,12 +40,7 @@
                             <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
                         </td>
                         <td>
-                            <form action="." method="post">
-                                <input type="hidden" name="action"
-                                       value="delete_todo">
-                                <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
-                                <button type="submit" value="Delete"><i class="fa fa-trash"></i></button>
-                            </form>
+
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -76,7 +71,7 @@
                                 <input type="hidden" name="action"
                                        value="delete_todo">
                                 <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
-                                <button type="submit" value="Delete"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-primary" type="submit" value="Delete"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
