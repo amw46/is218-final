@@ -58,6 +58,14 @@
                     <input type="submit" value="Edit">
                 </form>
             </td>
+            <td>
+                <form action="." method="post">
+                    <<input type="hidden" name="action"
+                            value="delete_product">
+                    <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
     <?php endforeach; ?>
 

@@ -83,7 +83,8 @@ if ($inDatabase) {
         }
     }
     else if ($action == "delete_todo") {
-
+        $tid = filter_input(INPUT_POST, "itemid");
+        $todo = TodosDB::getTodoById($tid);
     }
 
 }
