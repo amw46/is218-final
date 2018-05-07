@@ -5,8 +5,12 @@
 
         <form action="index.php" method="post" id="todo_form">
 
-            <input type="hidden" name="action" value="edit_todo">
 
+            <?php
+            $id = filter_input(INPUT_GET, 'id');
+            ?>
+            <input type="hidden" name="action" value="edit_todo">
+            <input type="hidden" name="itemid" value="<?php echo $id; ?>">
 
             <br>
             <label>Message:</label>
@@ -22,7 +26,7 @@
             <input type="submit" value="Submit">
         </form>
 
-        <a href="todos_list.php">Back</a>
+        <p><a href="?action=todo_list">Back</a></p>
 
     </main>
 <?php include '../view/footer.php'; ?>

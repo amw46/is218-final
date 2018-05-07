@@ -45,15 +45,14 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         include('todos_add.php');
     }
 
+    else if ($action == "show_edit_form") {
+        include('todos_edit.php');
+    }
+
     else if ($action == "edit_todo") {
         $tid = filter_input(INPUT_POST, "itemid");
         $todos = TodosDB::getTodoById($tid);
         //pasing variables along
-        foreach ($todos as $todo) {
-            $m = $todo->getDescription();
-            $c = $todo->getCreateDate();
-            $d = $todo->getDueDate();
-        }
 
 
         $message = filter_input(INPUT_POST, "message");
@@ -68,15 +67,14 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         }
         else {
             foreach ($todos as $todo) {
-                $m = $todo->setDescription($message);
-                $c = $todo->setCreateDate($created);
-                $d = $todo->setDueDate($due);
+                $todo->setDescription($message);
+                $todo->setCreateDate($created);
+                $todo->setDueDate($due);
                 TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $todo->getDescription(), $todo->getCreateDate(), $todo->getDueDate());
             }
 
         }
 
-        include("todos_edit.php");
 
     }
     else if ($action == "add_todo") {

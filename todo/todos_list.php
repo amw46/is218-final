@@ -29,17 +29,12 @@
         <tr>
             <?php echo $tdi->printRow(); ?>
             <td>
-                <form action="todos_edit.php" method="post">
-                    <input type="hidden" name="itemid" id="itemid" value="<?php echo $tdi->getId(); ?>">
-                    <input type="submit" value="Edit">
-                </form>
+                <span><a href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
             </td>
         </tr>
     <?php endforeach; ?>
 </table>
-<form action="todos_add.php">
-    <input type="submit" value="Add A New Task">
-</form>
+<p><a href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
 
 <h2>Complete To-Do List</h2>
 <table>
@@ -53,15 +48,12 @@
         <tr>
             <?php echo $tdc->printRow(); ?>
             <td>
-                <form action="todos_edit.php" method="post">
-                    <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
-                    <input type="submit" value="Edit">
-                </form>
+                <span><a href="?action=show_edit_form&id=<?php echo $tdc->getId(); ?>"><i class="fa fa-pencil"></a></span>
             </td>
             <td>
                 <form action="." method="post">
-                    <<input type="hidden" name="action"
-                            value="delete_product">
+                    <input type="hidden" name="action"
+                            value="delete_todo">
                     <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
                     <input type="submit" value="Delete">
                 </form>
