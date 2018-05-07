@@ -18,64 +18,78 @@
 </head>
 <body>
 
-<h1>Welcome, <?php echo $name ?></h1>
+<main class="mx-auto">
+    <h1>Welcome, <?php echo $name ?></h1>
 
-<div class="container">
-    <div class="card border-0 mt-5 inc">
-        <h2>Incomplete To-Do List</h2>
-        <table>
-            <tr>
-                <th>Description</th>
-                <th>Created Date</th>
-                <th>Due Date</th>
-                <th>&nbsp;</th>
-
-            </tr>
-            <?php foreach ($todosInc as $tdi) : ?>
+    <div class="container-fluid">
+        <div class="card border-0 mt-5 inc">
+            <h2>Incomplete To-Do List</h2>
+            <table>
                 <tr>
-                    <?php echo $tdi->printRow(); ?>
-                    <td>
-                        <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
-                    </td>
+                    <th>Description</th>
+                    <th>Created Date</th>
+                    <th>Due Date</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+
                 </tr>
-            <?php endforeach; ?>
-        </table>
-        <p><a href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
-    </div>
+                <?php foreach ($todosInc as $tdi) : ?>
+                    <tr>
+                        <?php echo $tdi->printRow(); ?>
+                        <td>
+                            <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
+                        </td>
+                        <td>
+                            <form action="." method="post">
+                                <input type="hidden" name="action"
+                                       value="delete_todo">
+                                <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
+                                <button type="submit" value="Delete"><i class="fa fa-trash-o"></button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+            <p><a class="btn-btn-primary" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
+        </div>
 
 
-    <div class="card border-0 mt-4 comp">
-        <h2>Complete To-Do List</h2>
-        <table>
-            <tr>
-                <th>Description</th>
-                <th>Created Date</th>
-                <th>Due Date</th>
-                <th>&nbsp;</th>
-            </tr>
-            <?php foreach ($todosCom as $tdc) : ?>
+        <div class="card border-0 mt-4 comp">
+            <h2>Complete To-Do List</h2>
+            <table>
                 <tr>
-                    <?php echo $tdc->printRow(); ?>
-                    <td>
-                        <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdc->getId(); ?>"><i class="fa fa-pencil"></a></span>
-                    </td>
-                    <td>
-                        <form action="." method="post">
-                            <input type="hidden" name="action"
-                                   value="delete_todo">
-                            <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
-                            <input type="submit" value="Delete">
-                        </form>
-                    </td>
+                    <th>Description</th>
+                    <th>Created Date</th>
+                    <th>Due Date</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
-            <?php endforeach; ?>
+                <?php foreach ($todosCom as $tdc) : ?>
+                    <tr>
+                        <?php echo $tdc->printRow(); ?>
+                        <td>
+                            <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdc->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
+                        </td>
+                        <td>
+                            <form action="." method="post">
+                                <input type="hidden" name="action"
+                                       value="delete_todo">
+                                <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
+                                <button type="submit" value="Delete"><i class="fa fa-trash-o"></button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
 
-        </table>
+            </table>
+        </div>
+
+
+
     </div>
+</main>
 
 
-
-</div>
 
 </body>
 
