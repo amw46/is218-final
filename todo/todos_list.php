@@ -44,7 +44,7 @@
                                 <input type="hidden" name="action"
                                        value="delete_todo">
                                 <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
-                                <button type="submit" value="Delete"><i class="fa fa-trash-o"></i></button>
+                                <input type="submit" value="Delete">
                             </form>
                         </td>
                     </tr>
@@ -75,7 +75,7 @@
                                 <input type="hidden" name="action"
                                        value="delete_todo">
                                 <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
-                                <button type="submit" value="Delete"><i class="fa fa-trash-o"></i></button>
+                                <input type="submit" value="Delete">
                             </form>
                         </td>
                     </tr>
