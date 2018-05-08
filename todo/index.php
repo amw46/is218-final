@@ -5,17 +5,10 @@ require('../model/AccountDB.php');
 require('../model/Todo.php');
 require('../model/Database.php');
 
-$cookieName = 'cookieid';
-$email = filter_input(INPUT_POST, 'signInEmail');
-$pass = filter_input(INPUT_POST, 'signInPassword');
-$name = AccountDB::getNameByEmail($email);
-$id = AccountDB::getIDByEmail($email);
+//$cookieName = 'cookieid';
 
 session_start();
-$_SESSION['user_email'] = $email;
-$_SESSION['user_pass'] = $pass;
-$inDatabase = AccountDB::authorize($_SESSION['user_email'], $_SESSION['user_pass']);
-$_SESSION['auth'] = $inDatabase;
+
 //setcookie($cookieName, $id, time() + (86400 * 30), "/"); // 86400 = 1 day
 
 
@@ -23,8 +16,7 @@ $_SESSION['auth'] = $inDatabase;
 if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
 
-    $_SESSION['user_name'] = $name;
-    $_SESSION['user_id'] = $id;
+
 
     $action = filter_input(INPUT_POST, 'action');
     if ($action == NULL) {
@@ -41,6 +33,23 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
         include('todos_list.php');
     }
+
+    else if ($action == "auth") {
+        $email = filter_input(INPUT_POST, 'signInEmail');
+        $pass = filter_input(INPUT_POST, 'signInPassword');
+        $name = AccountDB::getNameByEmail($email);
+        $id = AccountDB::getIDByEmail($email);
+
+        $inDatabase = AccountDB::authorize($email, $pass);
+        $_SESSION['auth'] = $inDatabase;
+
+        $_SESSION['user_email'] = $email;
+        $_SESSION['user_pass'] = $pass;
+        $_SESSION['user_name'] = $name;
+        $_SESSION['user_id'] = $id;
+    }
+
+
     else if ($action == "show_add_form") {
         include('todos_add.php');
     }
