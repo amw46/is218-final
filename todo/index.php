@@ -28,8 +28,8 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
     if ($action == 'list_todo') {
         $name = $_SESSION['user_name'];
-        $todosInc = TodosDB::getIncompleteTodo($email);
-        $todosCom = TodosDB::getCompleteTodo($email);
+        $todosInc = $_SESSION['incomplete'];
+        $todosCom = $_SESSION['complete'];
 
         include('todos_list.php');
     }
@@ -47,6 +47,8 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         $_SESSION['user_pass'] = $pass;
         $_SESSION['user_name'] = $name;
         $_SESSION['user_id'] = $id;
+        $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($email);
+        $_SESSION['complete'] = TodosDB::getCompleteTodo($email);
     }
 
     else if ($action == "new_user") {
@@ -60,6 +62,8 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
         AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
 
+        //header('Location: ../index.html');
+        echo "Account created successfully";
     }
 
     else if ($action == "show_add_form") {
