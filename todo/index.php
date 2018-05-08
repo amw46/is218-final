@@ -5,17 +5,17 @@ require('../model/AccountDB.php');
 require('../model/Todo.php');
 require('../model/Database.php');
 
-//$cookieName = 'cookieid';
-//$email = filter_input(INPUT_POST, 'signInEmail');
-//$pass = filter_input(INPUT_POST, 'signInPassword');
+$cookieName = 'cookieid';
+$email = filter_input(INPUT_POST, 'signInEmail');
+$pass = filter_input(INPUT_POST, 'signInPassword');
+$name = AccountDB::getNameByEmail($email);
+$id = AccountDB::getIDByEmail($email);
 
 session_start();
-
-$name = AccountDB::getNameByEmail($_SESSION['user_email']);
-$id = AccountDB::getIDByEmail($_SESSION['user_email']);
-
-
-
+$_SESSION['user_email'] = $email;
+$_SESSION['user_pass'] = $pass;
+$inDatabase = AccountDB::authorize($_SESSION['user_email'], $_SESSION['user_pass']);
+$_SESSION['auth'] = $inDatabase;
 //setcookie($cookieName, $id, time() + (86400 * 30), "/"); // 86400 = 1 day
 
 
@@ -101,7 +101,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 else {
     echo 'Not found in database';
     echo '<br>';
-    echo '<a href="../login.php">Refresh';
+    echo '<a href="../index.html">Refresh';
     echo '</a>';
 
 }
