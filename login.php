@@ -1,3 +1,32 @@
+<?php
+
+$email = filter_input(INPUT_POST, 'signInEmail');
+$pass = filter_input(INPUT_POST, 'signInPassword');
+
+if ($email != NULL && $pass != NULL) {
+    session_start();
+    $_SESSION['user_email'] = $email;
+    $_SESSION['user_pass'] = $pass;
+    $inDatabase = AccountDB::authorize($_SESSION['user_email'], $_SESSION['user_pass']);
+    if ($inDatabase != 'true') {//refresh
+        header('Location: login.php');
+
+    }
+    else {
+        $_SESSION['auth'] = $inDatabase;
+        header('Location: todo/index.php');
+    }
+
+}
+
+else { //refresh
+    header('Location: login.php');
+}
+
+?>
+
+
+
 <!doctype html>
 <html>
 
@@ -14,7 +43,7 @@
 
 <div>
 	<h2>Sign In</h2>
-	<form class="form-signin" action="todo/index.php" method="post">
+	<form class="form-signin" method="post">
 		<label for="inputEmail" class="sr-only">Email address</label>
 		<input type="email" name="signInEmail" id="signInEmail" class="form-control" placeholder="Email address" required >
 
