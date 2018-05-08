@@ -6,11 +6,49 @@ require('../model/Todo.php');
 require('../model/Database.php');
 
 //$cookieName = 'cookieid';
+//setcookie($cookieName, $id, time() + (86400 * 30), "/"); // 86400 = 1 day
 
 session_start();
 
-//setcookie($cookieName, $id, time() + (86400 * 30), "/"); // 86400 = 1 day
+$action = filter_input(INPUT_POST, 'action');
+if ($action == NULL) {
+    $action = filter_input(INPUT_GET, 'action');
+    if ($action == NULL) {
+        $action = 'auth';
+    }
+}
 
+if ($action == "auth") {
+    $email = filter_input(INPUT_POST, 'signInEmail');
+    $pass = filter_input(INPUT_POST, 'signInPassword');
+    $name = AccountDB::getNameByEmail($email);
+    $id = AccountDB::getIDByEmail($email);
+
+    $inDatabase = AccountDB::authorize($email, $pass);
+    $_SESSION['auth'] = $inDatabase;
+
+    $_SESSION['user_email'] = $email;
+    $_SESSION['user_pass'] = $pass;
+    $_SESSION['user_name'] = $name;
+    $_SESSION['user_id'] = $id;
+    $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($email);
+    $_SESSION['complete'] = TodosDB::getCompleteTodo($email);
+}
+
+else if ($action == "new_user") {
+    $first = filter_input(INPUT_POST, 'firstname');
+    $last = filter_input(INPUT_POST, 'lastname');
+    $email = filter_input(INPUT_POST, 'email');
+    $password = filter_input(INPUT_POST, 'password');
+    $phone = filter_input(INPUT_POST, 'phone');
+    $birthday = filter_input(INPUT_POST, 'bday');
+    $gender = filter_input(INPUT_POST, 'gender');
+
+    AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
+
+    //header('Location: ../index.html');
+    echo "Account created successfully";
+}
 
 
 if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
@@ -34,37 +72,6 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         include('todos_list.php');
     }
 
-    else if ($action == "auth") {
-        $email = filter_input(INPUT_POST, 'signInEmail');
-        $pass = filter_input(INPUT_POST, 'signInPassword');
-        $name = AccountDB::getNameByEmail($email);
-        $id = AccountDB::getIDByEmail($email);
-
-        $inDatabase = AccountDB::authorize($email, $pass);
-        $_SESSION['auth'] = $inDatabase;
-
-        $_SESSION['user_email'] = $email;
-        $_SESSION['user_pass'] = $pass;
-        $_SESSION['user_name'] = $name;
-        $_SESSION['user_id'] = $id;
-        $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($email);
-        $_SESSION['complete'] = TodosDB::getCompleteTodo($email);
-    }
-
-    else if ($action == "new_user") {
-        $first = filter_input(INPUT_POST, 'firstname');
-        $last = filter_input(INPUT_POST, 'lastname');
-        $email = filter_input(INPUT_POST, 'email');
-        $password = filter_input(INPUT_POST, 'password');
-        $phone = filter_input(INPUT_POST, 'phone');
-        $birthday = filter_input(INPUT_POST, 'bday');
-        $gender = filter_input(INPUT_POST, 'gender');
-
-        AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
-
-        //header('Location: ../index.html');
-        echo "Account created successfully";
-    }
 
     else if ($action == "show_add_form") {
         include('todos_add.php');
