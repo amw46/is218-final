@@ -23,6 +23,24 @@ class AccountDB
         return $isInDatabase;
     }
 
+    public static function addAccount($email, $fname, $lname, $ph, $bd, $g, $pass) {
+
+        $db = Database::getDB();
+
+        $query = 'INSERT INTO accounts (id, email, fname, lname, phone, birthday, gender, password) VALUES (, :em, :fn, :ln, :p, :bd, :g, :pass)';
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(":em", $email);
+        $statement->bindValue(":fn", $fname);
+        $statement->bindValue(":ln", $lname);
+        $statement->bindValue(":p", $ph);
+        $statement->bindValue(":bd", $bd);
+        $statement->bindValue(":g", $g);
+        $statement->bindValue(":pass", $pass);
+        $statement->execute();
+        $statement->closeCursor();
+}
+
     public static function getNameByEmail($email){
         $db = Database::getDB();
 

@@ -49,6 +49,18 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         $_SESSION['user_id'] = $id;
     }
 
+    else if ($action == "new_user") {
+        $first = filter_input(INPUT_POST, 'firstname');
+        $last = filter_input(INPUT_POST, 'lastname');
+        $email = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
+        $phone = filter_input(INPUT_POST, 'phone');
+        $birthday = filter_input(INPUT_POST, 'bday');
+        $gender = filter_input(INPUT_POST, 'gender');
+
+        AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
+
+    }
 
     else if ($action == "show_add_form") {
         include('todos_add.php');
