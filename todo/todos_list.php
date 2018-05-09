@@ -51,6 +51,8 @@
                 <?php endforeach; ?>
             </table>
 
+            <span class="incimg"></span>
+
             <p><a class="btn-btn-primary" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
         </div>
 
@@ -91,6 +93,7 @@
                 <?php endforeach; ?>
 
             </table>
+            <span class="compimg"></span>
         </div>
 
 
