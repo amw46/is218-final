@@ -21,12 +21,6 @@ if (isset($result)) {
 
 <body class="text-center" style="background: lightgoldenrodyellow">
 
-<header>
-    <div style="padding: 2em">
-        <?php echo $boot; ?>
-    </div>
-
-</header>
 
 <div class="p-5">
     <h2>Sign In</h2>
@@ -48,7 +42,11 @@ if (isset($result)) {
 
 <div class="container-fluid gold">
 
-
+    <div class="row">
+        <div style="padding: 2em">
+            <?php echo $boot; ?>
+        </div>
+    </div>
     <img class="mb-4" src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" alt="star" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
 
