@@ -128,7 +128,19 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
     else if ($action == "delete_todo") {
         $tid = filter_input(INPUT_POST, "itemid");
         $todo = TodosDB::getTodoById($tid);
+
+        if ($tid == NULL || $tid == "") {
+            echo 'Invalid';
+            echo '<br>';
+            echo '<a href="todos_list.php">Refresh';
+            echo '</a>';
+        }
+        else {
+            TodosDB::deleteTodo($tid);
+            header('Location: .?action=list_todo');
+        }
     }
+
 
 }
 
