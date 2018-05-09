@@ -87,7 +87,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
     }
 
     else if ($action == "edit_todo") {
-        $tid = filter_input(INPUT_POST, "itemid");
+        $tid = filter_input(INPUT_GET, 'id');
         $todo = TodosDB::getTodoById($tid);
         //pasing variables along
 
