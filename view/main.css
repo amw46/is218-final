@@ -9,8 +9,9 @@
 
 .comp {
 
+    color: white;
     background-color: rgba(106, 136, 221, 0.29);
-    background-size: auto;
+    background-size: cover;
     background-image: url("https://ak5.picdn.net/shutterstock/videos/33824515/thumb/5.jpg?i10c=img.resize(height:160)");
 
 }
@@ -22,9 +23,16 @@ h1, footer {
 }
 
 .comp td {
-    color: white;
     text-decoration: line-through;
 }
-.comp th h2 {
-    color: white;
+
+.galaxy {
+    background-color: rgba(106, 136, 221, 0.29);
+    background-size: cover;
+    background-image: url("http://ak7.picdn.net/shutterstock/videos/19079617/thumb/1.jpg");
+}
+
+.galaxy.opac {
+    background-color: #ffffff;
+    opacity: 0.75;
 }

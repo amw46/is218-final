@@ -10,11 +10,11 @@
 
 
 
-<main class="text-center">
+<main>
     <h1>Welcome, <?php echo $name ?></h1>
 
     <div class="container-fluid">
-        <div class="card border-0 mt-5 inc">
+        <div class="card text-center border-0 mt-5 inc">
             <h2>Incomplete To-Do List</h2>
             <table class="table table-hover">
                 <tr>
@@ -56,9 +56,9 @@
         </div>
 
 
-        <div class="card border-0 mt-4 comp">
+        <div class="card text-center border-0 mt-4 comp">
             <h2>Complete To-Do List</h2>
-            <table class="table table-hover text-muted">
+            <table class="table table-hover">
                 <tr>
                     <th>Description</th>
                     <th>Created Date</th>
