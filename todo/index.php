@@ -40,17 +40,17 @@ if ($action == "auth") {
 else if ($action == "new_user") {
     $first = filter_input(INPUT_POST, 'firstname');
     $last = filter_input(INPUT_POST, 'lastname');
-    $email = filter_input(INPUT_POST, 'signInEmail');
-    $password = filter_input(INPUT_POST, 'signInPassword');
+    $email = filter_input(INPUT_POST, 'email');
+    $password = filter_input(INPUT_POST, 'password');
     $phone = filter_input(INPUT_POST, 'phone');
     $birthday = filter_input(INPUT_POST, 'bday');
     $gender = filter_input(INPUT_POST, 'gender');
 
     AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
 
+    echo "Account created successfully";
+    header('Location: ../index.html');
 
-    header('Location: .?action=auth');
-   // echo "Account created successfully";
 }
 
 
