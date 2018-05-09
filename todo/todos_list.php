@@ -50,7 +50,7 @@
             </table>
 
 
-            <p><a class="btn btn-warning float-left" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
+            <p><a class="btn btn-warning mt-2" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
         </div>
 
 

@@ -13,7 +13,7 @@ class TodosDB {
         $query = 'SELECT * FROM todos WHERE owneremail = :email AND isdone = :bool';
         $statement = $db->prepare($query);
         $statement->bindValue(':email', $em);
-        $statement->bindValue(':bool', 0);
+        $statement->bindValue(':bool', 1);
         $statement->execute();
         $todos = $statement->fetchAll();
         $statement->closeCursor();
@@ -39,7 +39,7 @@ class TodosDB {
         $query = 'SELECT * FROM todos WHERE owneremail = :email AND isdone = :bool';
         $statement = $db->prepare($query);
         $statement->bindValue(':email', $em);
-        $statement->bindValue(':bool', 1);
+        $statement->bindValue(':bool', 0);
         $statement->execute();
         $todos = $statement->fetchAll();
         $statement->closeCursor();
