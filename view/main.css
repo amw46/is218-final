@@ -1,18 +1,20 @@
 .inc {
     background-image: url("http://brzeg24.pl/wp-content/uploads/2017/06/s%C5%82o%C5%84ce-brzeg24.jpg");
-    background-color: rgba(0, 191, 255, 0.5);
-     background-blend-mode: lighten;
+    background-color: rgba(119, 224, 255, 0.33);
+    background-size: cover;
+    background-blend-mode: lighten;
 }
 
 .comp {
 
     background-image: url("https://ak5.picdn.net/shutterstock/videos/33824515/thumb/5.jpg?i10c=img.resize(height:160)");
-    background-color: rgba(89, 114, 184, 0.29);
+    background-color: rgba(106, 136, 221, 0.29);
+    background-size: cover;
     background-blend-mode: lighten;
 }
 
-h1 {
-    margin: auto;
+h1, footer {
+   text-align: center;
 }
 
 .comp td {
