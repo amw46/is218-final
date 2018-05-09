@@ -42,14 +42,11 @@ if (isset($result)) {
 
 <div class="container-fluid gold">
 
-    <div class="row">
-        <div style="padding: 2em">
-            <?php echo $boot; ?>
-        </div>
-    </div>
     <img class="mb-4" src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" alt="star" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
-
+    <div style="padding: 2em">
+        <?php echo $boot; ?>
+    </div>
     <form class="form-signin" action="todo/index.php" method="post">
         <input type="hidden" name="action" value="new_user">
         <label for="inputFirst" class="sr-only">First Name</label>
