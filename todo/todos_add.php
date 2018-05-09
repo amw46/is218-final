@@ -27,7 +27,7 @@ include("../model/TodosDB.php");
             <input type="submit" value="Submit">
         </form>
 
-        <p><a href="?action=todo_list">Back</a></p>
+        <p><a href="?action=list_todo">Back</a></p>
 
     </main>
 </div>
