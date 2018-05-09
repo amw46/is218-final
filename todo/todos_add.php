@@ -12,19 +12,19 @@
 
             <br>
             <label>Message:</label>
-            <input type="text" name="message">
+            <input type="text" name="message" class="my-2">
             <br>
             <label>Created Date:</label>
-            <input type="date" name="created">
+            <input type="date" name="created" class="my-2">
             <br>
             <label>Due Date</label>
-            <input type="date" name="due">
+            <input type="date" name="due" class="my-2">
             <br>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="my-2">
         </form>
 
-        <p><a href="?action=list_todo">Back</a></p>
+        <p class="my-2"><a href="?action=list_todo">Back</a></p>
 
     </main>
 </div>
