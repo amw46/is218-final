@@ -33,6 +33,8 @@ if ($action == "auth") {
     $_SESSION['user_id'] = $id;
     $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($email);
     $_SESSION['complete'] = TodosDB::getCompleteTodo($email);
+
+    header('Location: .?action=list_todo');
 }
 
 else if ($action == "new_user") {
@@ -46,8 +48,8 @@ else if ($action == "new_user") {
 
     AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
 
-    //header('Location: ../index.html');
-    echo "Account created successfully";
+    header('Location: .?action=list_todo');
+   // echo "Account created successfully";
 }
 
 
