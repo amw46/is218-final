@@ -34,6 +34,13 @@
 
 
     <form class="form-signin" action="todo/index.php" method="post">
+        <div class="form-group"> <!-- -user alert -->
+            <div>
+                <?php echo $result; ?>
+            </div>
+
+        </div>
+
         <img class="mb-4" src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" alt="star" width="72" height="72">
         <input type="hidden" name="action" value="new_user">
         <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>

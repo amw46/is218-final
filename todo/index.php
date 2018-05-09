@@ -46,10 +46,20 @@ else if ($action == "new_user") {
     $birthday = filter_input(INPUT_POST, 'bday');
     $gender = filter_input(INPUT_POST, 'gender');
 
-    AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
+    if ($first == NULL || $last == NULL || $email == NULL || $password == NULL || $phone == NULL || $birthday == NULL || $gender == NULL){
+        echo 'Not found in database';
+        echo '<br>';
+        echo '<a href="../index.php">Refresh';
+        echo '</a>';
+    }
+    else {
 
-    echo "Account created successfully";
-    header('Location: ../index.html');
+        $result='<div class="alert alert-success">User account created</div>';;
+        AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
+
+        header('Location: ../index.php');
+    }
+
 
 }
 
@@ -183,7 +193,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
     else if ($action == "logout") {
         session_destroy();
-        header('Location: ../index.html');
+        header('Location: ../index.php');
     }
 
 }
@@ -191,7 +201,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 else {
     echo 'Not found in database';
     echo '<br>';
-    echo '<a href="../index.html">Refresh';
+    echo '<a href="../index.php">Refresh';
     echo '</a>';
 
 }
