@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css"
-          href="https://web.njit.edu/~amw46/is218-final/main.css">
+          href="https://web.njit.edu/~amw46/is218-final/view/main.css">
 </head>
 
 <!-- the body section -->

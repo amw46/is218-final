@@ -118,8 +118,26 @@ class TodosDB {
         $statement->closeCursor();
     }
 
-    public static function setComplete() {
+    public static function setComplete($id) {
+        $db = Database::getDB();
 
+        $query = 'UPDATE todos SET isdone = :done WHERE id = :id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(":done", 0);
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        $statement->closeCursor();
+    }
+
+    public static function setIncomplete($id) {
+        $db = Database::getDB();
+
+        $query = 'UPDATE todos SET isdone = :done WHERE id = :id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(":done", 1);
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+        $statement->closeCursor();
     }
 
 } //end class
