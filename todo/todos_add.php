@@ -4,8 +4,8 @@ include("../model/TodosDB.php");
 
 ?>
 
-
-    <main class="text-center">
+<div class="galaxy">
+    <main class="text-center opac">
         <h1>Add A To-Do Item</h1>
 
         <form action="index.php" method="post" id="todo_add_form">
@@ -30,4 +30,6 @@ include("../model/TodosDB.php");
         <p><a href="?action=todo_list">Back</a></p>
 
     </main>
+</div>
+
 <?php include '../view/footer.php'; ?>

@@ -22,8 +22,6 @@
                     <th>Created Date</th>
                     <th>Due Date</th>
                     <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
                 </tr>
                 <?php foreach ($todosInc as $tdi) : ?>
                     <tr>
@@ -52,7 +50,7 @@
             </table>
 
 
-            <p><a class="btn btn-primary" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
+            <p><a class="btn btn-primary float-left" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
         </div>
 
 
