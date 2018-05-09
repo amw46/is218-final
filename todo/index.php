@@ -115,8 +115,10 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         $message = filter_input(INPUT_POST, "message");
         $created = filter_input(INPUT_POST, "created");
         $due = filter_input(INPUT_POST, "due");
+        $em = $_SESSION['user_email'];
+        $oid = $_SESSION['user_id'];
 
-        if ($_SESSION['user_id'] == NULL || $_SESSION['user_email'] == NULL || $message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
+        if ($oid == NULL || $em == NULL || $message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
             echo 'Invalid';
             echo '<br>';
             echo '<a href=".?action=list_todo">Refresh';
