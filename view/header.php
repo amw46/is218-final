@@ -13,4 +13,6 @@
 
 <!-- the body section -->
 <body>
-<header><h1>The To-Do List</h1></header>
+<div class="jumbotron">
+    <header><h1>The To-Do List</h1></header>
+</div>
