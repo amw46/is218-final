@@ -60,7 +60,7 @@ class TodosDB {
     public static function addTodo ($oid, $em, $mess, $cd, $dd, $done) {
         $db = Database::getDB();
 
-        $query = 'INSERT INTO todos (id, email, ownerid, createddate, duedate, message, isdone) VALUES (, :em, :oid, :cd, :dd, :mess, :done)';
+        $query = 'INSERT INTO todos (owneremail, ownerid, createddate, duedate, message, isdone) VALUES (:em, :oid, :cd, :dd, :mess, :done)';
 
         $statement = $db->prepare($query);
         $statement->bindValue(":mess", $mess);

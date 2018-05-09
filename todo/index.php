@@ -128,7 +128,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
             echo '</a>';
         }
         else {
-            TodosDB::addTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due, 0);
+            TodosDB::addTodo($oid, $email, $message, $created, $due, 0);
             header('Location: .?action=list_todo');
         }
     }

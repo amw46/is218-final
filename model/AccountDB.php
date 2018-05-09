@@ -27,7 +27,7 @@ class AccountDB
 
         $db = Database::getDB();
 
-        $query = 'INSERT INTO accounts (id, email, fname, lname, phone, birthday, gender, password) VALUES (, :em, :fn, :ln, :p, :bd, :g, :pass)';
+        $query = 'INSERT INTO accounts (email, fname, lname, phone, birthday, gender, password) VALUES (:em, :fn, :ln, :p, :bd, :g, :pass)';
 
         $statement = $db->prepare($query);
         $statement->bindValue(":em", $email);
@@ -59,7 +59,7 @@ class AccountDB
     public static function getIDByEmail($email){
         $db = Database::getDB();
 
-        $query = 'SELECT ownerid FROM accounts WHERE email = :email';
+        $query = 'SELECT id FROM accounts WHERE email = :email';
         $statement = $db->prepare($query);
         $statement->bindValue(':email', $email);
         $statement->execute();
