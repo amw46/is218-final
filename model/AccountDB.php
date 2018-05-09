@@ -67,7 +67,7 @@ class AccountDB
         $i = $statement->fetch();
         $statement->closeCursor();
 
-        $id = $i['ownerid'];
+        $id = $i['id'];
 
         return $id;
     }
