@@ -73,16 +73,15 @@ class TodosDB {
         $statement->closeCursor();
     }
 
-    public static function editTodo($oid, $em, $mess, $cd, $dd) {
+    public static function editTodo($id, $mess, $cd, $dd) {
         $db = Database::getDB();
 
-        $query = 'UPDATE todos SET message = :mess, createddate = :cd, duedate = :dd WHERE owneremail = :em AND ownerid = :oid';
+        $query = 'UPDATE todos SET message = :mess, createddate = :cd, duedate = :dd WHERE id = :id';
         $statement = $db->prepare($query);
         $statement->bindValue(":mess", $mess);
         $statement->bindValue(":cd", $cd);
         $statement->bindValue(":dd", $dd);
-        $statement->bindValue(":em", $em);
-        $statement->bindValue(":oid", $oid);
+        $statement->bindValue(":id", $id);
         $statement->execute();
         $statement->closeCursor();
     }

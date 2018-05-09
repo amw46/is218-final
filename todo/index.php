@@ -48,6 +48,9 @@ else if ($action == "new_user") {
 
     AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
 
+    $inDatabase = AccountDB::authorize($email, $password);
+    $_SESSION['auth'] = $inDatabase;
+
     header('Location: .?action=list_todo');
    // echo "Account created successfully";
 }
@@ -93,7 +96,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         $created = filter_input(INPUT_POST, "created");
         $due = filter_input(INPUT_POST, "due");
 
-        if ($_SESSION['user_id'] == NULL || $_SESSION['user_email'] == NULL || $message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
+        if ($tid == NULL ||$message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
             echo 'Invalid';
             echo '<br>';
             echo '<a href=".?action=list_todo">Refresh';
@@ -101,7 +104,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         }
         else {
 
-            TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due);
+            TodosDB::editTodo($tid, $message, $created, $due);
 
             header('Location: .?action=list_todo');
         }
