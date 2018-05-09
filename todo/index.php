@@ -108,6 +108,9 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
             $todo->setDueDate($due);
 
             TodosDB::editTodo($tid, $message, $created, $due);
+            //reset todos
+            $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($_SESSION['user_email']);
+            $_SESSION['complete'] = TodosDB::getCompleteTodo($_SESSION['user_email']);
 
             header('Location: .?action=list_todo');
         }
@@ -129,6 +132,8 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         }
         else {
             TodosDB::addTodo($oid, $em, $message, $created, $due, 0);
+            $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($em);
+            $_SESSION['complete'] = TodosDB::getCompleteTodo($em);
             header('Location: .?action=list_todo');
         }
     }
