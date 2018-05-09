@@ -35,7 +35,7 @@
             <input type="submit" class="my-2"value="Submit">
         </form>
 
-        <p class="mt-3"><a href="?action=list_todo">Back</a></p>
+        <p class="mt-1"><a class="btn btn-dark" href="?action=list_todo">Back</a></p>
 
     </main>
 </div>

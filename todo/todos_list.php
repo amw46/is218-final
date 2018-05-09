@@ -15,7 +15,7 @@
 
     <div class="container-fluid">
         <div class="card text-center border-0 mt-5 inc">
-            <h2>Incomplete To-Do List</h2>
+            <h2 class="py-2">Incomplete To-Do List</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -60,7 +60,7 @@
 
 
         <div class="card text-center border-0 mt-4 comp">
-            <h2>Complete To-Do List</h2>
+            <h2 class="py-2">Complete To-Do List</h2>
             <table class="table table-hover">
                 <thead>
                 <tr>
