@@ -141,6 +141,15 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         }
     }
 
+    else if ($action == "set_complete") {
+        $tid = filter_input(INPUT_POST, "itemid");
+        $todo = TodosDB::getTodoById($tid);
+    }
+
+    else if ($action == "set_incomplete") {
+        $tid = filter_input(INPUT_POST, "itemid");
+        $todo = TodosDB::getTodoById($tid);
+    }
 
 }
 

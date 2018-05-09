@@ -39,6 +39,14 @@
                                 <button class="btn btn-primary" type="submit" value="Delete"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
+                        <td>
+                            <form action="." method="post">
+                                <input type="hidden" name="action"
+                                       value="set_complete">
+                                <input type="hidden" name="itemid" value="<?php echo $tdi->getId(); ?>">
+                                <button class="btn btn-primary" type="submit" value="Complete"><i class="fa fa-check"></i></button>
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -49,7 +57,7 @@
 
         <div class="card border-0 mt-4 comp">
             <h2>Complete To-Do List</h2>
-            <table class="table table-hover">
+            <table class="table table-hover text-muted">
                 <tr>
                     <th>Description</th>
                     <th>Created Date</th>
@@ -69,6 +77,14 @@
                                        value="delete_todo">
                                 <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
                                 <button class="btn btn-primary" type="submit" value="Delete"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="." method="post">
+                                <input type="hidden" name="action"
+                                       value="set_incomplete">
+                                <input type="hidden" name="itemid" value="<?php echo $tdc->getId(); ?>">
+                                <button class="btn btn-primary" type="submit" value="Incomplete"><i class="fa fa-close"></i></button>
                             </form>
                         </td>
                     </tr>
