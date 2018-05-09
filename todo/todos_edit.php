@@ -23,19 +23,19 @@
 
             <br>
             <label>Message:</label>
-            <input type="text" name="message" value="<?php echo $todo->getDescription(); ?>">
+            <input type="text" class="my-2" name="message" value="<?php echo $todo->getDescription(); ?>">
             <br>
             <label>Created Date:</label>
-            <input type="date" name="created" value="<?php echo $cdDateOnly ?>">
+            <input type="date" class="my-2" name="created" value="<?php echo $cdDateOnly ?>">
             <br>
             <label>Due Date:</label>
-            <input type="date" name="due" value="<?php echo $ddDateOnly ?>">
+            <input type="date" class="my-2" name="due" value="<?php echo $ddDateOnly ?>">
             <br>
 
-            <input type="submit" value="Submit">
+            <input type="submit" class="my-2"value="Submit">
         </form>
 
-        <p><a href="?action=list_todo">Back</a></p>
+        <p class="mt-3"><a href="?action=list_todo">Back</a></p>
 
     </main>
 </div>
