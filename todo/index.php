@@ -175,6 +175,11 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
 
     }
 
+    else if ($action == "logout") {
+        session_destroy();
+        header('Location: ../index.html');
+    }
+
 }
 
 else {
