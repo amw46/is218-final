@@ -27,14 +27,14 @@
                     <tr>
                         <?php echo $tdi->printRow(); ?>
                         <td>
-                            <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
+                            <span><a class="btn btn-warning" href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
                         </td>
                         <td>
                             <form action="." method="post">
                                 <input type="hidden" name="action"
                                        value="delete_todo">
                                 <input type="hidden" name="itemid" value="<?php echo $tdi->getId(); ?>">
-                                <button class="btn btn-primary" type="submit" value="Delete"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-warning" type="submit" value="Delete"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
                         <td>
@@ -42,7 +42,7 @@
                                 <input type="hidden" name="action"
                                        value="set_complete">
                                 <input type="hidden" name="itemid" value="<?php echo $tdi->getId(); ?>">
-                                <button class="btn btn-primary" type="submit" value="Complete"><i class="fa fa-check"></i></button>
+                                <button class="btn btn-warning" type="submit" value="Complete"><i class="fa fa-check"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -50,7 +50,7 @@
             </table>
 
 
-            <p><a class="btn btn-primary float-left" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
+            <p><a class="btn btn-warning float-left" href="?action=show_add_form"><i class="fa fa-plus"></i></a></p>
         </div>
 
 
