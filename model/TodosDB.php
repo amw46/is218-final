@@ -123,7 +123,7 @@ class TodosDB {
 
         $query = 'UPDATE todos SET isdone = :done WHERE id = :id';
         $statement = $db->prepare($query);
-        $statement->bindValue(":done", 0);
+        $statement->bindValue(":done", 1);
         $statement->bindValue(":id", $id);
         $statement->execute();
         $statement->closeCursor();
@@ -134,7 +134,7 @@ class TodosDB {
 
         $query = 'UPDATE todos SET isdone = :done WHERE id = :id';
         $statement = $db->prepare($query);
-        $statement->bindValue(":done", 1);
+        $statement->bindValue(":done", 0);
         $statement->bindValue(":id", $id);
         $statement->execute();
         $statement->closeCursor();
