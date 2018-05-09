@@ -58,13 +58,17 @@ body {
 
 
 .gold {
-	background: goldenrod;
+  background-color: goldenrod;
 
 }
 
+.yellow{
+  background-color: yellow;
+
+}
 
 .padding {
-	padding: 50px;	
+  padding: 50px;
 }
 
 
