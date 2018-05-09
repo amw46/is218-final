@@ -19,9 +19,9 @@ if (isset($result)) {
 </head>
 
 
-<body class="text-center">
+<body class="text-center" style="background: lightgoldenrodyellow">
 
-<div class="yellow">
+<div class="p-5">
     <h2>Sign In</h2>
     <form class="form-signin" action="todo/index.php" method="post">
         <input type="hidden" name="action" value="auth">
@@ -39,7 +39,7 @@ if (isset($result)) {
 </div>
 
 
-<div class="container-fluid gold padding">
+<div class="container-fluid gold">
 
     <?php echo $boot; ?>
 
