@@ -1,5 +1,10 @@
 <?php
     $result = filter_input(INPUT_GET, "r");
+
+    if (isset($result)) {
+        $boot = '<div class="alert alert-success">' . 'Account created successfully' . '</div>';
+    }
+
 ?>
 
 <!doctype html>
@@ -40,7 +45,7 @@
     <form class="form-signin" action="todo/index.php" method="post">
         <div class="form-group"> <!-- -user alert -->
 
-                <?php echo $result; ?>
+                <?php echo $boot; ?>
         </div>
 
         <img class="mb-4" src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" alt="star" width="72" height="72">

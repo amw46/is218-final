@@ -54,7 +54,7 @@ else if ($action == "new_user") {
     }
     else {
 
-        $result='<div class="alert alert-success">User account created</div>';
+        $result='Success';
         AccountDB::addAccount($email, $first, $last, $phone, $birthday, $gender, $password);
 
         header("Location: ../index.php?r=$result");
