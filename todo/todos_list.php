@@ -23,7 +23,7 @@
                     <th>Due Date</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
-
+                    <th>&nbsp;</th>
                 </tr>
                 <?php foreach ($todosInc as $tdi) : ?>
                     <tr>
@@ -63,7 +63,7 @@
                     <th>Created Date</th>
                     <th>Due Date</th>
                     <th>&nbsp;</th>
-                    <th>&nbsp;</th>
+
                 </tr>
                 <?php foreach ($todosCom as $tdc) : ?>
                     <tr>
