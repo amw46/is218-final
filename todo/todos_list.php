@@ -55,7 +55,7 @@
         </div>
 
 
-        <div class="card border-0 mt-4 text-light comp">
+        <div class="card border-0 mt-4 comp">
             <h2>Complete To-Do List</h2>
             <table class="table table-hover text-muted">
                 <tr>

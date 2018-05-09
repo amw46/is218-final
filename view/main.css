@@ -11,6 +11,7 @@
     background-color: rgba(106, 136, 221, 0.29);
     background-size: cover;
     background-blend-mode: lighten;
+    color:white;
 }
 
 h1, footer {
