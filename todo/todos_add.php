@@ -1,8 +1,5 @@
 <?php include '../view/header.php'; ?>
-<?php
-include("../model/TodosDB.php");
 
-?>
 
 <div class="galaxy">
     <main class="text-center opac">
