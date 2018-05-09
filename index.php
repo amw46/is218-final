@@ -1,3 +1,7 @@
+<?php
+    $result = filter_input(INPUT_GET, "r");
+?>
+
 <!doctype html>
 <html>
 
@@ -35,10 +39,8 @@
 
     <form class="form-signin" action="todo/index.php" method="post">
         <div class="form-group"> <!-- -user alert -->
-            <div>
-                <?php echo $result; ?>
-            </div>
 
+                <?php echo $result; ?>
         </div>
 
         <img class="mb-4" src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" alt="star" width="72" height="72">
