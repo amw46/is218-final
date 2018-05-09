@@ -19,9 +19,9 @@ if (isset($result)) {
 </head>
 
 
-<body class="text-center yellow">
+<body class="text-center">
 
-<div>
+<div class="yellow">
     <h2>Sign In</h2>
     <form class="form-signin" action="todo/index.php" method="post">
         <input type="hidden" name="action" value="auth">
