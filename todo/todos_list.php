@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<main class="mx-auto">
+<main class="text-center">
     <h1>Welcome, <?php echo $name ?></h1>
 
     <div class="container-fluid">
