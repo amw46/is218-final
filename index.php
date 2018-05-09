@@ -44,11 +44,10 @@ if (isset($result)) {
     <?php echo $boot; ?>
 
     <img class="mb-4" src="http://images.clipartpanda.com/clipart-star-RTA9RqzTL.png" alt="star" width="72" height="72">
-    <input type="hidden" name="action" value="new_user">
     <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
 
     <form class="form-signin" action="todo/index.php" method="post">
-
+        <input type="hidden" name="action" value="new_user">
         <label for="inputFirst" class="sr-only">First Name</label>
         <input type="text" name="firstname" id="inputFirst" class="form-control" placeholder="First Name" required autofocus>
 
