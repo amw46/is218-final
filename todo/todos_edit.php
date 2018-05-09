@@ -1,6 +1,6 @@
 <?php include '../view/header.php'; ?>
 
-    <main>
+    <main class="text-center">
         <h1>Edit A To-Do Item</h1>
 
         <form action="index.php" method="post" id="todo_form">

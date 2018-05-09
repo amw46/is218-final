@@ -5,7 +5,7 @@ include("../model/TodosDB.php");
 ?>
 
 
-    <main>
+    <main class="text-center">
         <h1>Add A To-Do Item</h1>
 
         <form action="index.php" method="post" id="todo_add_form">

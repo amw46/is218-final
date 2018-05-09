@@ -1,4 +1,4 @@
-<?php //include '../view/header.php'; ?>
+<?php  '../view/header.php'; ?>
 
 <?php
 
@@ -8,15 +8,7 @@
 
 ?>
 
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- bootstrap css -->
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-<body>
 
 <main class="text-center">
     <h1>Welcome, <?php echo $name ?></h1>
@@ -24,7 +16,7 @@
     <div class="container-fluid">
         <div class="card border-0 mt-5 inc">
             <h2>Incomplete To-Do List</h2>
-            <table>
+            <table class="table table-hover">
                 <tr>
                     <th>Description</th>
                     <th>Created Date</th>
@@ -57,7 +49,7 @@
 
         <div class="card border-0 mt-4 comp">
             <h2>Complete To-Do List</h2>
-            <table>
+            <table class="table table-hover">
                 <tr>
                     <th>Description</th>
                     <th>Created Date</th>
@@ -92,11 +84,5 @@
 
 
 
-</body>
 
-
-</html>
-
-
-
-<?php // include '../view/footer.php'; ?>
+<?php  include '../view/footer.php'; ?>
