@@ -10,6 +10,13 @@
             <?php
             $id = filter_input(INPUT_GET, 'id');
             $todo = TodosDB::getTodoById($id);
+
+            $cdOriginal = $todo->getCreateDate();
+            $ddOriginal = $todo->getDueDate();
+            $pattern = '/ [0-9]{2}:[0-9]{2}:[0-9]{2}/';
+
+            $cdDateOnly = preg_replace($pattern, "", $cdOriginal);
+            $ddDateOnly = preg_replace($pattern, "", $ddOriginal);
             ?>
             <input type="hidden" name="action" value="edit_todo">
             <input type="hidden" name="itemid" value="<?php echo $id; ?>">
@@ -19,10 +26,10 @@
             <input type="text" name="message" value="<?php echo $todo->getDescription(); ?>">
             <br>
             <label>Created Date:</label>
-            <input type="date" name="created" value="<?php echo $todo->getCreateDate(); ?>">
+            <input type="date" name="created" value="<?php echo $cdDateOnly ?>">
             <br>
             <label>Due Date:</label>
-            <input type="date" name="due" value="<?php echo $todo->getDueDate(); ?>">
+            <input type="date" name="due" value="<?php echo $ddDateOnly ?>">
             <br>
 
             <input type="submit" value="Submit">

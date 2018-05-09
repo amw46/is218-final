@@ -17,19 +17,22 @@
         <div class="card text-center border-0 mt-5 inc">
             <h2>Incomplete To-Do List</h2>
             <table class="table table-hover">
-                <tr>
-                    <th>Description</th>
-                    <th>Created Date</th>
-                    <th>Due Date</th>
-                    <th>&nbsp;</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Created Date</th>
+                        <th>Due Date</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+
                 <?php foreach ($todosInc as $tdi) : ?>
                     <tr>
                         <?php echo $tdi->printRow(); ?>
-                        <td>
+                        <td title="edit">
                             <span><a class="btn btn-warning" href="?action=show_edit_form&id=<?php echo $tdi->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
                         </td>
-                        <td>
+                        <td title="delete">
                             <form action="." method="post">
                                 <input type="hidden" name="action"
                                        value="delete_todo">
@@ -37,7 +40,7 @@
                                 <button class="btn btn-warning" type="submit" value="Delete"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
-                        <td>
+                        <td title="set as complete">
                             <form action="." method="post">
                                 <input type="hidden" name="action"
                                        value="set_complete">
@@ -57,6 +60,7 @@
         <div class="card text-center border-0 mt-4 comp">
             <h2>Complete To-Do List</h2>
             <table class="table table-hover">
+                <thead>
                 <tr>
                     <th>Description</th>
                     <th>Created Date</th>
@@ -64,13 +68,15 @@
                     <th>&nbsp;</th>
 
                 </tr>
+                </thead>
+
                 <?php foreach ($todosCom as $tdc) : ?>
                     <tr>
                         <?php echo $tdc->printRow(); ?>
-                        <td>
+                        <td title="edit">
                             <span><a class="btn btn-primary" href="?action=show_edit_form&id=<?php echo $tdc->getId(); ?>"><i class="fa fa-pencil"></i></a></span>
                         </td>
-                        <td>
+                        <td title="delete">
                             <form action="." method="post">
                                 <input type="hidden" name="action"
                                        value="delete_todo">
@@ -78,7 +84,7 @@
                                 <button class="btn btn-primary" type="submit" value="Delete"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
-                        <td>
+                        <td title="set as incomplete">
                             <form action="." method="post">
                                 <input type="hidden" name="action"
                                        value="set_incomplete">
