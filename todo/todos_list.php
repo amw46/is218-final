@@ -23,6 +23,8 @@
                         <th>Created Date</th>
                         <th>Due Date</th>
                         <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead>
 
@@ -66,7 +68,8 @@
                     <th>Created Date</th>
                     <th>Due Date</th>
                     <th>&nbsp;</th>
-
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
                 </thead>
 
