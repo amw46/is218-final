@@ -103,9 +103,6 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
             echo '</a>';
         }
         else {
-            $todo->setDescription($message);
-            $todo->setCreateDate($created);
-            $todo->setDueDate($due);
 
             TodosDB::editTodo($tid, $message, $created, $due);
             //reset todos
