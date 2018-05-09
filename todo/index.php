@@ -105,7 +105,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
             $todo->setDueDate($due);
             TodosDB::editTodo($_SESSION['user_id'], $_SESSION['user_email'], $todo->getDescription(), $todo->getCreateDate(), $todo->getDueDate());
 
-
+            header('Location: .?action=list_todo');
         }
 
 
@@ -118,11 +118,12 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         if ($message == NULL || $message == FALSE ||$due == NULL || $created == NULL) {
             echo 'Invalid';
             echo '<br>';
-            echo '<a href="todos_list.php">Refresh';
+            echo '<a href=".?action=list_todo">Refresh';
             echo '</a>';
         }
         else {
             TodosDB::addTodo($_SESSION['user_id'], $_SESSION['user_email'], $message, $created, $due, 0);
+            header('Location: .?action=list_todo');
         }
     }
     else if ($action == "delete_todo") {
@@ -132,7 +133,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         if ($tid == NULL || $tid == "") {
             echo 'Invalid';
             echo '<br>';
-            echo '<a href="todos_list.php">Refresh';
+            echo '<a href=".?action=list_todo">Refresh';
             echo '</a>';
         }
         else {
@@ -148,7 +149,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         if ($tid == NULL || $tid == "") {
             echo 'Invalid';
             echo '<br>';
-            echo '<a href="todos_list.php">Refresh';
+            echo '<a href=".?action=list_todo">Refresh';
             echo '</a>';
         }
         else {
@@ -164,7 +165,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         if ($tid == NULL || $tid == "") {
             echo 'Invalid';
             echo '<br>';
-            echo '<a href="todos_list.php">Refresh';
+            echo '<a href=".?action=list_todo">Refresh';
             echo '</a>';
         }
         else {
