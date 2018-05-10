@@ -183,6 +183,7 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
     else if ($action == "set_incomplete") {
         $tid = filter_input(INPUT_POST, "itemid");
         $todo = TodosDB::getTodoById($tid);
+        $em = $_SESSION['user_email'];
 
         if ($tid == NULL || $tid == "") {
             echo 'Invalid';
