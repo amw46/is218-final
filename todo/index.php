@@ -145,8 +145,9 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
     else if ($action == "delete_todo") {
         $tid = filter_input(INPUT_POST, "itemid");
         $todo = TodosDB::getTodoById($tid);
+        $em = $_SESSION['user_email'];
 
-        if ($tid == NULL || $tid == "") {
+        if ($em == NULL || $tid == NULL || $tid == "") {
             echo 'Invalid';
             echo '<br>';
             echo '<a href=".?action=list_todo">Refresh';
@@ -163,8 +164,9 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
     else if ($action == "set_complete") {
         $tid = filter_input(INPUT_POST, "itemid");
         $todo = TodosDB::getTodoById($tid);
+        $em = $_SESSION['user_email'];
 
-        if ($tid == NULL || $tid == "") {
+        if ($em == NULL || $tid == NULL || $tid == "") {
             echo 'Invalid';
             echo '<br>';
             echo '<a href=".?action=list_todo">Refresh';
