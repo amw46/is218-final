@@ -154,6 +154,8 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         }
         else {
             TodosDB::deleteTodo($tid);
+            $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($em);
+            $_SESSION['complete'] = TodosDB::getCompleteTodo($em);
             header('Location: .?action=list_todo');
         }
     }
@@ -170,6 +172,8 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         }
         else {
             TodosDB::setComplete($tid);
+            $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($em);
+            $_SESSION['complete'] = TodosDB::getCompleteTodo($em);
             header('Location: .?action=list_todo');
         }
     }
@@ -186,6 +190,8 @@ if ((!empty($_SESSION['auth']) || $_SESSION['auth'] == 'true')) {
         }
         else {
             TodosDB::setIncomplete($tid);
+            $_SESSION['incomplete'] = TodosDB::getIncompleteTodo($em);
+            $_SESSION['complete'] = TodosDB::getCompleteTodo($em);
             header('Location: .?action=list_todo');
         }
 
